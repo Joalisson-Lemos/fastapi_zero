@@ -32,12 +32,13 @@ def read_users():
 def read_user_id(
     user_id: int,
 ):
-     if user_id < 1 or user_id > len(database):
-            raise HTTPException(
-                status_code=HTTPStatus.NOT_FOUND, detail='User not found'
-            )
-     return database[user_id - 1]
-    
+    if user_id < 1 or user_id > len(database):
+        raise HTTPException(
+            status_code=HTTPStatus.NOT_FOUND, detail='User not found'
+        )
+    return database[user_id - 1]
+
+
 @app.put(
     '/users/{user_id}', status_code=HTTPStatus.OK, response_model=UserPublic
 )
